@@ -12,7 +12,7 @@ function App() {
     fetch('https://swapi.dev/api/films').then(response=>{
       return response.json();
     }).then(data=>{
-      const transFormedData=data.map(moviesData=>{
+      const transFormedData=data.result.map(moviesData=>{
         return{
           id:moviesData.episode_id,
           title:moviesData.title,
