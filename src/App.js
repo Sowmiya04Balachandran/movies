@@ -3,6 +3,7 @@ import React from 'react';
 import MoviesList from './components/MoviesList';
 import './App.css';
 import { useState ,useEffect,useCallback} from 'react';
+import AddMovie from './components/AddMovie';
 
 function App() {
 
@@ -43,6 +44,10 @@ function App() {
       fetchMoviesHandler();
     },[fetchMoviesHandler]);
 
+    function addMoviesHandler(movie){
+      console.log(movie)
+    }
+
    let content=<p>No Movies Found</p>
 
    if(movies.length>0){
@@ -58,6 +63,9 @@ function App() {
 
   return (
     <React.Fragment>
+      <sectio>
+        <AddMovie onAddMovie={addMoviesHandler}/>
+      </sectio>
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
       </section>
@@ -70,72 +78,4 @@ function App() {
 
 export default App;
 
-// import React, { useState } from 'react';
-// import MoviesList from './components/MoviesList';
-// import './App.css';
 
-// function App() {
-//   const [movies, setMovies] = useState([]);
-//   const [isLoading, setIsLoading] = useState(false);
-//   const [error, setError] = useState(null);
-//   //const [retrying, setRetrying] = useState(false);
-
-//   const fetchMoviesHandler = async () => {
-//     setIsLoading(true);
-//     setError(null);
-
-//     while (retrying) {
-//       try {
-//         const response = await fetch('https://swapi.dev/api/films');
-//         if (!response.ok) {
-//           throw new Error('Something went wrong');
-//         }
-
-//         const data = await response.json();
-//         const transFormedData = data.results.map((moviesData) => ({
-//           id: moviesData.episode_id,
-//           title: moviesData.title,
-//           openingText: moviesData.opening_crawl,
-//           releaseDate: moviesData.release_date,
-//         }));
-//         setMovies(transFormedData);
-        
-//       } catch (error) {
-//         setError('Something went wrong... Retrying');
-//         await new Promise((resolve) => setTimeout(resolve, 5000)); // Retry after 5 seconds
-//       }
-//     }
-//     setIsLoading(false);
-//   };
-  
-//   let content = <p>No Movies Found</p>;
-
-//   if (movies.length > 0) {
-//     content = <MoviesList movies={movies} />;
-//   }
-
-//   if (error) {
-//     content = (
-//       <div>
-//         <p>{error}</p>
-//         {/* <button onClick={retryHandler} value={retrying}>Retry</button>
-//         <button onClick={cancelRetryHandler}>Cancel</button> */}
-//       </div>
-//     );
-//   }
-
-//   if (isLoading) {
-//     content = <p>Loading....</p>;
-//   }
-
-//   return (
-//     <React.Fragment>
-//       <section>
-//         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
-//       </section>
-//       <section>{content}</section>
-//     </React.Fragment>
-//   );
-// }
-
-// export default App;

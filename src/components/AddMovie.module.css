@@ -1,0 +1,20 @@
+/* AddMovie.module.css */
+.addMovieForm {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .addMoviesButton {
+    font: inherit;
+    cursor: pointer;
+    background: #230052;
+    border: 1px solid #230052;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 20px;
+  }
+  
