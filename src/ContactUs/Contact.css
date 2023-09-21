@@ -1,0 +1,48 @@
+.contact {
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    background-color: rgb(44, 20, 67);
+    padding: 1rem 3rem;
+    width: 53vmin !important;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    top: 6rem;
+    left: 35%;
+  }
+  
+  .contact div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    
+  }
+  
+  .contact div label {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  .contact div input {
+    border: 1px solid rgb(206, 189, 189);
+    border-radius: 6px;
+    padding: 0.2rem 0.4rem;
+    font-size: 15px;
+    width: 15rem;
+    font-weight: 500;
+  }
+  
+  .contact div input:focus {
+    outline: none;
+  }
+  
+  .greeting {
+    margin-top: 8rem;
+    font-weight: 700;
+  }
