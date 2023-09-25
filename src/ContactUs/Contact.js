@@ -3,8 +3,11 @@ import "./Contact.css";
 import React, { useRef, useCallback, useState } from "react";
 import Feedback from "./Feedback";
 
-const url =
-  "https://create-contact-page-default-rtdb.asia-southeast1.firebasedatabase.app/movies";
+// const url =
+//   "https://create-contact-page-default-rtdb.asia-southeast1.firebasedatabase.app/movies";
+
+const url="https://ecommerce-website-1a003-default-rtdb.firebaseio.com/movies"
+
 
 const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);

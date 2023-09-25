@@ -3,7 +3,7 @@ import "./ProductItem.css";
 import MyContext from "../../store/MyContext";
 import { useContext, useState, useCallback } from "react";
 
-const url = "https://user-specific-c59f0-default-rtdb.firebaseio.com/";
+const url = "https://ecommerce-website-1a003-default-rtdb.firebaseio.com/";
 
 const ProductItem = (props) => {
   const [currImage, setCurrImage] = useState(`${props.img}/hoodie${1}.webp`);

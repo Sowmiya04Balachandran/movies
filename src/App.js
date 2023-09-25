@@ -1,7 +1,7 @@
 import "./App.css";
 import CartItem from "./components/Cart/CartItem";
-import React, { useMemo, useState, useContext } from "react";
-import Home from "./components/Home/Home";
+import React, { useMemo, useState, useContext, Suspense } from "react";
+//import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Header from "./components/Header/Header";
 import {
@@ -27,7 +27,8 @@ const App = () => {
         company: "Smartees",
         title: "Men Full Sleeve Printed Hooded",
         price: 599,
-        imageUrl: "https://tse3.mm.bing.net/th?id=OIP.XRpWu0bExVHTRVyiriQf4AHaHa&pid=Api&P=0&h=180",
+        imageUrl:
+          "https://tse3.mm.bing.net/th?id=OIP.XRpWu0bExVHTRVyiriQf4AHaHa&pid=Api&P=0&h=180",
       },
 
       {
@@ -36,7 +37,8 @@ const App = () => {
         company: "Fastoche",
         title: "Men Full Sleeve Printed Hooded",
         price: 749,
-        imageUrl: "https://tse3.mm.bing.net/th?id=OIP.M550p2-WXuV90ATm5D_X0AHaHa&pid=Api&P=0&h=180",
+        imageUrl:
+          "https://tse3.mm.bing.net/th?id=OIP.M550p2-WXuV90ATm5D_X0AHaHa&pid=Api&P=0&h=180",
       },
 
       {
@@ -45,7 +47,8 @@ const App = () => {
         company: "Alan Jones",
         title: "Men Full Sleeve Solid Hooded",
         price: 500,
-        imageUrl: "https://tse2.mm.bing.net/th?id=OIP.lDXeKtBI-2Jf0j7I5ODcewHaHa&pid=Api&P=0&h=180",
+        imageUrl:
+          "https://tse2.mm.bing.net/th?id=OIP.lDXeKtBI-2Jf0j7I5ODcewHaHa&pid=Api&P=0&h=180",
       },
 
       {
@@ -54,7 +57,8 @@ const App = () => {
         company: "Kay Dee",
         title: "Men Colorblock Hooded",
         price: 349,
-        imageUrl: "https://tse2.mm.bing.net/th?id=OIP.3gFIIKAYDNf6ExHeNoLKuAHaHa&pid=Api&P=0&h=180",
+        imageUrl:
+          "https://tse2.mm.bing.net/th?id=OIP.3gFIIKAYDNf6ExHeNoLKuAHaHa&pid=Api&P=0&h=180",
       },
     ],
     []
@@ -64,46 +68,50 @@ const App = () => {
     setShowCart(show);
   };
 
+  const Home = React.lazy(() => import("./components/Home/Home"));
+
   return (
     <Router>
       <Header />
       <div>
-        <Switch>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-
-          {isLoggedIn && (
-            <Route exact path="/product">
-              <Products products={productsArr} onCart={cartButtonHandler} />
-              {showCart && <CartItem onCancel={cartButtonHandler} />}
+        <Suspense fallback={<div className="centered">Loading....</div>}>
+        
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/home" />
             </Route>
-          )}
-          {!isLoggedIn && (
-            <Route path="/product">
-              <Redirect to="/login" />
+
+            {isLoggedIn && (
+              <Route exact path="/product">
+                <Products products={productsArr} onCart={cartButtonHandler} />
+                {showCart && <CartItem onCancel={cartButtonHandler} />}
+              </Route>
+            )}
+            {!isLoggedIn && (
+              <Route path="/product">
+                <Redirect to="/login" />
+              </Route>
+            )}
+
+            <Route exact path="/about">
+              <About />
             </Route>
-          )}
 
-          <Route exact path="/about">
-            <About />
-          </Route>
+            <Route exact path="/home">
+              <Home />
+            </Route>
 
-          <Route exact path="/home">
-            <Home />
-          </Route>
-
-          <Route exact path="/contact">
-            <Contact />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route path='/*'>
-            <Login />
-          </Route>
-
-        </Switch>
+            <Route exact path="/contact">
+              <Contact />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route path="/*">
+              <Login />
+            </Route>
+          </Switch>
+        </Suspense>
       </div>
     </Router>
   );

@@ -20,7 +20,7 @@ const CartItem = (props) => {
       try {
         // get all the data
         const resGet = await fetch(
-          `https://user-specific-c59f0-default-rtdb.firebaseio.com/cart/${filteredEmail}.json`,
+          `https://ecommerce-website-1a003-default-rtdb.firebaseio.com/cart/${filteredEmail}.json`,
           {
             method: "GET",
             headers: { "Content-Type": "application/json" },
@@ -37,7 +37,7 @@ const CartItem = (props) => {
           }
         }
         const resDel = await fetch(
-          `https://user-specific-c59f0-default-rtdb.firebaseio.com/cart/${filteredEmail}/${getKey}.json`,
+          `https://ecommerce-website-1a003-default-rtdb.firebaseio.com/cart/${filteredEmail}/${getKey}.json`,
           {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },

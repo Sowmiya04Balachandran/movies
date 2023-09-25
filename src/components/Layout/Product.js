@@ -4,6 +4,7 @@ import React from "react";
 import AboutHeader from "../About/AboutHeader";
 import AboutFooter from "../About/AboutFooter";
 import Cart from "../Cart/Cart";
+//import { Link } from "react-router-dom";
 
 //const img = "assests/hoodie";
 
@@ -21,19 +22,22 @@ const Product = (props) => {
       <Cart onCart={props.onCart} />
       <h1>Men Hoodies</h1>
       <ul className="product-list">
+       
         {props.products.map((product, index) => (
-          <ProductItem
-            rate={product.rate}
-            key={product.id}
-            id={product.id}
-            //img={`${img}${index + 1}`}
-           // ind={index + 1}
-           img={imgurl[index]} // Use direct image URL
-            ind={index + 1}
-            product={product}
-          />
+             <ProductItem
+             rate={product.rate}
+             key={product.id}
+             id={product.id}
+             //img={`${img}${index + 1}`}
+            // ind={index + 1}
+            img={imgurl[index]} // Use direct image URL
+             ind={index + 1}
+             product={product}
+           />
         ))}
+        
       </ul>
+      
       <AboutFooter />
     </div>
   );

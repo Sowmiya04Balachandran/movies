@@ -17,10 +17,10 @@ const Login = (props) => {
   let url = null;
   if (login) {
     url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAi_zDvXq4IuDzKX_WmaHKicFr5Tg3xk8Y";
+      "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBeXZ9axTreBicLLI33PYFsvWnAmhYih-g";
   } else {
     url =
-      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAi_zDvXq4IuDzKX_WmaHKicFr5Tg3xk8Y";
+      "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBeXZ9axTreBicLLI33PYFsvWnAmhYih-g";
   }
 
   const formSubmitHandler = async (event) => {

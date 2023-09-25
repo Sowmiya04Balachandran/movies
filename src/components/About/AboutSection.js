@@ -5,7 +5,7 @@ const AboutSection = () => {
     <section className="about-section">
       <h1>ABOUT</h1>
       <div className="contents">
-        <img src='assests/band.png' alt="not found" />
+        <img src='https://prasadyash2411.github.io/ecom-website/img/Band%20Members.png' alt="not found" />
         <p>
           Lorem ipsum carrots enhanced rebates. Excellent sayings of a man of
           sorrows, hates no prosecutors will unfold in the enduring of which
